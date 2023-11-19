@@ -1,10 +1,10 @@
 {
-    "name": "My plugin",
+    "name": "Cheshire Cat Reranker",
     "version": "0.0.1",
-    "description": "Description of my_plugin.",
-    "author_name": "Me",
+    "description": "Description of cranker.",
+    "author_name": "nickprock",
     "author_url": "https://mywebsite.me",
-    "plugin_url": "https://github.com/my_name/my_plugin",
+    "plugin_url": "https://github.com/my_name/cranker",
     "tags": "cat, template, example",
-    "thumb": "https://raw.githubusercontent.com/my_repo_path/my_plugin.png"
+    "thumb": "https://raw.githubusercontent.com/my_repo_path/cranker.png"
 }
