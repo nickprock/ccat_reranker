@@ -53,7 +53,7 @@ def litm(documents):
         litm_docs = [documents[idx] for idx in lost_in_the_middle_indices]
     return litm_docs
 
-def filter_ranker(documents):
+def filter_ranker(documents, tool_threshold):
     """
     Returns list of tools with a similarity score higher than 0.5.
 
@@ -63,5 +63,7 @@ def filter_ranker(documents):
 
     Returns
     ----------
-    tools: The same list but reordered
+    filtered: The same list but filtered
     """
+    filtered = [d for d in documents if d[1]>tool_threshold]
+    return filtered

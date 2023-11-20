@@ -1,10 +1,9 @@
 {
     "name": "Cheshire Cat Reranker",
-    "version": "0.0.1",
-    "description": "Description of cranker.",
+    "version": "0.1.0",
+    "description": "This plugin apply a reranking to each memory. It rearranges: the episodic memory from the most recent to the oldest, the declarative using lost in the middle and the procedural using a filter.",
     "author_name": "nickprock",
-    "author_url": "https://mywebsite.me",
-    "plugin_url": "https://github.com/my_name/cranker",
-    "tags": "cat, template, example",
-    "thumb": "https://raw.githubusercontent.com/my_repo_path/cranker.png"
+    "plugin_url": "https://github.com/nickprock/ccat_reranker",
+    "tags": "cat, memory, advanced, reranker",
+    "thumb": "https://raw.githubusercontent.com/nickprock/ccat_reranker/main/img.jpg"
 }

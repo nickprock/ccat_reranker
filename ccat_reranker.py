@@ -1,5 +1,5 @@
 from cat.mad_hatter.decorators import hook
-from .rankers import litm, get_settings, recentness
+from .rankers import get_settings, recent_ranker, litm, filter_ranker
 
 
 @hook(priority=1)
@@ -18,7 +18,7 @@ def after_cat_recalls_memories(cat) -> None:
     settings = get_settings()
     if settings["RECENTNESS"]:
         if cat.working_memory['episodic_memories']:
-            recent_docs = recentness(cat.working_memory['episodic_memories'])
+            recent_docs = recent_ranker(cat.working_memory['episodic_memories'])
             cat.working_memory['episodic_memories'] = recent_docs
         else:
             print("#HicSuntGattones")
@@ -32,7 +32,7 @@ def after_cat_recalls_memories(cat) -> None:
     
     if settings["FILTER"]:
         if cat.working_memory['procedural_memories']:
-            print("NON PUò ENTRAREEEEH!")
+            filtered = filter_ranker(cat.working_memory['procedural_memories'], settings["tool_threshold"])
         else:
             print("#HicSuntGattones")
     pass # do nothing
