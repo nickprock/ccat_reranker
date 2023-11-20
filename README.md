@@ -23,5 +23,6 @@ The ReRanker can be enabled and disabled for each memory independently using the
 4. Edit the available settings and save.
 
 > **Important**
+
 > ReRankers (in particular Lost In The Middle) are very useful if you get at least more than 10 documents returned from the memories.
 > Before using it download and enable the [C.A.T. plugin](https://github.com/Furrmidable-Crew/cat_advanced_tools) from the Plugins store, [follow the instructions](https://github.com/Furrmidable-Crew/cat_advanced_tools#usage) to increase the k parameter of the memories.
