@@ -4,7 +4,7 @@
 
 Cheshire Cat ReRanker apply a rearrangement at each memory with different criteria:
 * the [*episodic memory*](https://cheshire-cat-ai.github.io/docs/conceptual/memory/episodic_memory/) is reordered according to a temporal criteria, from the newest to the oldest.
-* the [*declarative memory*](https://cheshire-cat-ai.github.io/docs/conceptual/memory/declarative_memory/) is reordered according the [**lost in the middle** paper](https://arxiv.org/abs/2307.03172) method
+* the [*declarative memory*](https://cheshire-cat-ai.github.io/docs/conceptual/memory/declarative_memory/) is reordered according to the [**lost in the middle** paper](https://arxiv.org/abs/2307.03172) method
 * the [*procedural memory*](https://cheshire-cat-ai.github.io/docs/conceptual/memory/procedural_memory/) isn't reordered but filtered using a threshold, the default value is 0.5 but you can set it.
 
 The ReRanker can be enabled and disabled for each memory independently using the "Settings".
