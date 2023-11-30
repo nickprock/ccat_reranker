@@ -1,6 +1,6 @@
 {
     "name": "Cheshire Cat ReRanker",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "This plugin apply a reranking to each memory. It rearranges: the episodic memory from the most recent to the oldest, the declarative using lost in the middle and the procedural using a filter.",
     "author_name": "nickprock",
     "plugin_url": "https://github.com/nickprock/ccat_reranker",
