@@ -1,5 +1,7 @@
 import os
 import json
+import numpy as np
+
 def get_settings():
     if os.path.isfile("cat/plugins/ccat_reranker/settings.json"):
         with open("cat/plugins/ccat_reranker/settings.json", "r") as json_file:
@@ -67,3 +69,12 @@ def filter_ranker(documents, tool_threshold):
     """
     filtered = [d for d in documents if d[1]>tool_threshold]
     return filtered
+
+def sbert_ranker(documents, query, model):
+    sentence_combinations = [[query, document[0].page_content] for document in documents]
+    scores = model.predict(sentence_combinations)
+    ranked_indices = np.argsort(scores)[::-1]
+    out_list = [documents[idx] for idx in ranked_indices]
+    # I don't change the score in the Documents using the reranker score 
+    # because it could be very different than the classical bi-encoder and could create mistakes 
+    return out_list

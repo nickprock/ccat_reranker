@@ -1,6 +1,6 @@
 from cat.mad_hatter.decorators import hook
-from .rankers import get_settings, recent_ranker, litm, filter_ranker
-
+from .rankers import get_settings, recent_ranker, litm, filter_ranker, sbert_ranker
+from sentence_transformers.cross_encoder import CrossEncoder
 
 @hook(priority=1)
 def after_cat_recalls_memories(cat) -> None:
@@ -16,6 +16,7 @@ def after_cat_recalls_memories(cat) -> None:
 
     """
     settings = get_settings()
+    #TODO print(cat.working_memory.history[0]['message'])
     if settings["RECENTNESS"]:
         if cat.working_memory['episodic_memories']:
             recent_docs = recent_ranker(cat.working_memory['episodic_memories'])
@@ -23,10 +24,15 @@ def after_cat_recalls_memories(cat) -> None:
         else:
             print("#HicSuntGattones")
 
-    if settings["LITM"]:
+    if settings["SBERT"]:
+        model = CrossEncoder(settings["ranker"])
         if cat.working_memory['declarative_memories']:
-            litm_docs = litm(cat.working_memory['declarative_memories'])
-            cat.working_memory['declarative_memories'] = litm_docs
+            sbert_docs = sbert_ranker(cat.working_memory['declarative_memories'], cat.working_memory.history[0]['message'], model)
+            if settings["LITM"]:
+                litm_docs = litm(sbert_docs)
+                cat.working_memory['declarative_memories'] = litm_docs
+            else:
+                cat.working_memory['declarative_memories'] = sbert_docs
         else:
             print("#HicSuntGattones")
     
