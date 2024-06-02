@@ -6,7 +6,7 @@ class MySettings(BaseModel):
     LITM: bool = True,
     RECENTNESS: bool = True,
     FILTER: bool = True,
-    SBERT: bool = True
+    SBERT: bool = False
     ranker: str = "cross-encoder/ms-marco-MiniLM-L-6-v2",
     tool_threshold: float = 0.5
 
