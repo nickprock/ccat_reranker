@@ -23,7 +23,8 @@ def after_cat_recalls_memories(cat) -> None:
             cat.working_memory['episodic_memories'] = recent_docs
         else:
             print("#HicSuntGattones")
-
+    
+    #TODO refactor
     if settings["SBERT"]:
         model = CrossEncoder(settings["ranker"])
         if cat.working_memory['declarative_memories']:
@@ -33,6 +34,15 @@ def after_cat_recalls_memories(cat) -> None:
                 cat.working_memory['declarative_memories'] = litm_docs
             else:
                 cat.working_memory['declarative_memories'] = sbert_docs
+        else:
+            print("#HicSuntGattones")
+    else:
+        if cat.working_memory['declarative_memories']:
+            if settings["LITM"]:
+                litm_docs = litm(cat.working_memory['declarative_memories'])
+                cat.working_memory['declarative_memories'] = litm_docs
+            else:
+                print("#HicSuntGattones")
         else:
             print("#HicSuntGattones")
     
