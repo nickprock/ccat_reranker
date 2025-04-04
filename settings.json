@@ -1,0 +1,8 @@
+{
+    "LITM": false,
+    "RECENTNESS": false,
+    "FILTER": false,
+    "SBERT": false,
+    "ranker": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "tool_threshold": 0.5
+}
