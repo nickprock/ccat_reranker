@@ -15,42 +15,42 @@ def after_cat_recalls_memories(cat) -> None:
         Cheshire Cat instance.
 
     """
-    # settings = get_settings()
+    
     #TODO print(cat.working_memory.history[0]['message'])
     settings = cat.mad_hatter.get_plugin().load_settings()
     if settings["RECENTNESS"]:
-        if cat.working_memory['episodic_memories']:
-            recent_docs = recent_ranker(cat.working_memory['episodic_memories'])
-            cat.working_memory['episodic_memories'] = recent_docs
+        if cat.working_memory.episodic_memories:
+            recent_docs = recent_ranker(cat.working_memory.episodic_memories)
+            cat.working_memory.episodic_memories = recent_docs
         else:
             print("#HicSuntGattones")
     
     #TODO refactor
     if settings["SBERT"]:
         model = CrossEncoder(settings["ranker"])
-        if cat.working_memory['declarative_memories']:
-            sbert_docs = sbert_ranker(cat.working_memory['declarative_memories'], cat.working_memory.history[0]['message'], model)
+        if cat.working_memory.declarative_memories:
+            sbert_docs = sbert_ranker(cat.working_memory.declarative_memories, cat.working_memory.history[0].text, model)
             if settings["LITM"]:
                 litm_docs = litm(sbert_docs)
-                cat.working_memory['declarative_memories'] = litm_docs
+                cat.working_memory.declarative_memories = litm_docs
             else:
-                cat.working_memory['declarative_memories'] = sbert_docs
+                cat.working_memory.declarative_memories = sbert_docs
         else:
             print("#HicSuntGattones")
     else:
-        if cat.working_memory['declarative_memories']:
+        if cat.working_memory.declarative_memories:
             if settings["LITM"]:
-                litm_docs = litm(cat.working_memory['declarative_memories'])
-                cat.working_memory['declarative_memories'] = litm_docs
+                litm_docs = litm(cat.working_memory.declarative_memories)
+                cat.working_memory.declarative_memories = litm_docs
             else:
                 print("#HicSuntGattones")
         else:
             print("#HicSuntGattones")
     
     if settings["FILTER"]:
-        if cat.working_memory['procedural_memories']:
-            filtered = filter_ranker(cat.working_memory['procedural_memories'], settings["tool_threshold"])
+        if cat.working_memory.procedural_memories:
+            filtered = filter_ranker(cat.working_memory.procedural_memories, settings["tool_threshold"])
+            cat.working_memory.procedural_memories = filtered
         else:
             print("#HicSuntGattones")
     pass # do nothing
-
