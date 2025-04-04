@@ -2,11 +2,11 @@ import os
 import json
 import numpy as np
 
-def get_settings():
-    if os.path.isfile("cat/plugins/ccat_reranker/settings.json"):
-        with open("cat/plugins/ccat_reranker/settings.json", "r") as json_file:
-            settings = json.load(json_file)
-    return settings
+# def get_settings():
+#     if os.path.isfile("cat/plugins/ccat_reranker/settings.json"):
+#         with open("cat/plugins/ccat_reranker/settings.json", "r") as json_file:
+#             settings = json.load(json_file)
+#     return settings
 
 def recent_ranker(documents):
     """
