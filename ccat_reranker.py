@@ -1,6 +1,6 @@
 from cat.mad_hatter.decorators import hook
 from .rankers import get_settings, recent_ranker, litm, filter_ranker, sbert_ranker
-from sentence_transformers.cross_encoder import CrossEncoder
+from sentence_transformers import CrossEncoder
 
 @hook(priority=1)
 def after_cat_recalls_memories(cat) -> None:
