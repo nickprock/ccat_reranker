@@ -15,8 +15,9 @@ def after_cat_recalls_memories(cat) -> None:
         Cheshire Cat instance.
 
     """
-    settings = get_settings()
+    # settings = get_settings()
     #TODO print(cat.working_memory.history[0]['message'])
+    settings = cat.mad_hatter.get_plugin().load_settings()
     if settings["RECENTNESS"]:
         if cat.working_memory['episodic_memories']:
             recent_docs = recent_ranker(cat.working_memory['episodic_memories'])
