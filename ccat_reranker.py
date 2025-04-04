@@ -1,5 +1,5 @@
 from cat.mad_hatter.decorators import hook
-from .rankers import get_settings, recent_ranker, litm, filter_ranker, sbert_ranker
+from .rankers import recent_ranker, litm, filter_ranker, sbert_ranker
 from sentence_transformers import CrossEncoder
 
 @hook(priority=1)
